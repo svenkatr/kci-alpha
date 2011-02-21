@@ -9,7 +9,7 @@ if [[ $WORKSPACE == '' ]]
 then
  echo "Warn: Workspace environment not set ?"
 else
- export KERNEL_ROOT=$WORKSPACE/kernel
+ export BUILD_ROOT=$WORKSPACE/kernel
 fi
 
-export RESULTS_DIR=$KERNEL_ROOT/results
+export RESULTS_DIR=$BUILD_ROOT/results

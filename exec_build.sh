@@ -1,7 +1,7 @@
 
 # invoke with one of the configuration file as parameter
 # there are some predefined settings in the settings (duh ?) directory
-source build-env.sh
+source kbuild-env.sh
 cd $KCI_ROOT
 if [[ $1 == '' ]]
 then
@@ -12,4 +12,4 @@ else
 fi
 rm -f build_settings.pm
 cp settings/$BUILD_CONFIG.pl build_settings.pm
-./do_build.pl $KERNEL_ROOT
+./do_build.pl $BUILD_ROOT
