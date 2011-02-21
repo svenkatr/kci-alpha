@@ -1,5 +1,4 @@
 #!/bin/bash
-@echo off
 #Tools environment
 export KCI_ROOT=`pwd`
 export KBUILDCONFIG=$KCI_ROOT/kbconfig
