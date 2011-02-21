@@ -3,8 +3,9 @@
 # there are some predefined settings in the settings (duh ?) directory
 source kbuild-env.sh
 cd $KCI_ROOT
-rm -f buildtest.xml
-echo "<BuildTest>" >> buildtest.xml
+$RESULTS_LOG= $KCI_ROOT/buildtest.xml
+rm -f $RESULTS_LOG
+echo "<BuildTest>" >> $RESULTS_LOG
 
 if [[ $1 == '' ]]
 then
@@ -15,7 +16,7 @@ else
 fi
 rm -f build_settings.pm
 cp settings/$BUILD_CONFIG.pl build_settings.pm
-perl do_build.pl $BUILD_ROOT
+perl do_build.pl $BUILD_ROOT $RESULTS_LOG
 cd $KCI_ROOT
-echo "</BuildTest>" >> buildtest.xml
+echo "</BuildTest>" >> $RESULTS_LOG
 
