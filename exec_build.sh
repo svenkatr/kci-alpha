@@ -1,7 +1,7 @@
 
 # invoke with one of the configuration file as parameter
 # there are some predefined settings in the settings (duh ?) directory
-source kbuild-env.sh
+source ./kbuild-env.sh
 cd $KCI_ROOT
 rm -fr $RESULTS_DIR
 mkdir $RESULTS_DIR
