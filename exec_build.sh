@@ -9,6 +9,6 @@ then
 else
   export BUILD_CONFIG=$1
 fi
-rm -f build_settings.py
-cp settings/$BUILD_CONFIG.pl build_settings.pl
+rm -f build_settings.pm
+cp settings/$BUILD_CONFIG.pl build_settings.pm
 ./do_build.pl
