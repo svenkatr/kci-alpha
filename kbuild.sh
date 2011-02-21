@@ -13,7 +13,16 @@ fi
 
 
 $CCACHE make $target_name >> $RESULTS_DIR/$config_name$config_ext 2>&1
-mv $BUILD_ROOT/arch/arm/boot/$target_name $RESULTS_DIR/$target_name"_"$config_name
+if [ $? == 0 ]
+then
+	echo "Build succeeded: $config_name"
+	mv $BUILD_ROOT/arch/arm/boot/$target_name $RESULTS_DIR/$target_name"_"$config_name
+else
+	echo "Error:Build failed: $config_name"
+	tail $RESULTS_DIR/$config_name$config_ext
+fi
+
+	
 
 
 
