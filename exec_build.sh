@@ -1,6 +1,7 @@
 
-# invoke with one of the python configuration file as parameter
+# invoke with one of the configuration file as parameter
 # there are some predefined settings in the settings (duh ?) directory
+source build-env.sh
 cd $KCI_ROOT
 if [[ $1 == '' ]]
 then
@@ -11,4 +12,4 @@ else
 fi
 rm -f build_settings.pm
 cp settings/$BUILD_CONFIG.pl build_settings.pm
-./do_build.pl
+./do_build.pl $KERNEL_ROOT
