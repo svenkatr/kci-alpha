@@ -11,4 +11,4 @@ else
 fi
 rm -f build_settings.py
 cp settings/$BUILD_CONFIG.pl build_settings.pl
-python exec_build.py
+./do_build.pl
