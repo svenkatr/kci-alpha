@@ -1,5 +1,3 @@
-#!/usr/bin/env perl
-
 package build_settings;
 use strict;
 require Exporter;

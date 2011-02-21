@@ -3,6 +3,9 @@
 # there are some predefined settings in the settings (duh ?) directory
 source kbuild-env.sh
 cd $KCI_ROOT
+rm -f buildtest.xml
+echo "<BuildTest>" >> buildtest.xml
+
 if [[ $1 == '' ]]
 then
   echo "Build settings file not specified: Using standard configuration"
@@ -12,4 +15,7 @@ else
 fi
 rm -f build_settings.pm
 cp settings/$BUILD_CONFIG.pl build_settings.pm
-./do_build.pl $BUILD_ROOT
+perl do_build.pl $BUILD_ROOT
+cd $KCI_ROOT
+echo "</BuildTest>" >> buildtest.xml
+

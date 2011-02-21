@@ -1,4 +1,5 @@
 #Explicitly unset a lot of variables to catch workspace assumption bugs
+echo "Always invoke as source kci-env.sh"
 export KCI_ROOT=
 export KERNEL_ROOT=
 export ARCH=
