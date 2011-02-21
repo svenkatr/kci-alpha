@@ -8,21 +8,19 @@ if [ -e $KBUILDCONFIG/$config_name ]
 then
   cp $KBUILDCONFIG/$config_name .config
 else
-  $KBUILDCONFIG/intreeconfig.sh $config_name
+  $KBUILDCONFIG/intreeconfig.sh $config_name 2>>$RESULTS_DIR/$config_name$config_ext
 fi
 
 
-$CCACHE make $target_name >> $RESULTS_DIR/$config_name$config_ext 2>&1
+$CCACHE make -j4 $target_name 2>>$RESULTS_DIR/$config_name$config_ext
 if [ $? == 0 ]
 then
 	echo "Build succeeded: $config_name"
-	mv $BUILD_ROOT/arch/arm/boot/$target_name $RESULTS_DIR/$target_name"_"$config_name
+	@mv $BUILD_ROOT/arch/arm/boot/$target_name $RESULTS_DIR/$target_name"_"$config_name
+	echo "uImage generated for $config_name"
 else
 	echo "Error:Build failed: $config_name"
-	tail $RESULTS_DIR/$config_name$config_ext
+	echo "Complete build logs.."
+	cat $RESULTS_DIR/$config_name$config_ext
 fi
-
-	
-
-
 
