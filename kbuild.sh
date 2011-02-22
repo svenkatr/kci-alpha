@@ -8,6 +8,7 @@ config_ext=".txt"
 target_name="uImage"
 logname="build_log_"$config_name$config_ext
 
+make -j4 distclean
 log_init_testcase kernel buildtests $config_name
 
 if [ -e $KBUILDCONFIG/$config_name ]

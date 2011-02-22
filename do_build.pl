@@ -21,3 +21,7 @@ foreach $conf (@$ca) {
 	exec_sys_cmd("\$KCI_ROOT/kbuild.sh $conf $buildsettings{'modules'}");
 }
 
+if (exists($buildsettings{'sparse'})) {
+	exec_sys_cmd("\$KCI_ROOT/ksparse.sh $buildsettings{'sparse'}");
+}
+
