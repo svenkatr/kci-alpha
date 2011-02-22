@@ -18,6 +18,6 @@ my $results_log = $ARGV[1];
 my $ca = $buildsettings{'build_configs'};
 my $conf;
 foreach $conf (@$ca) {
-	exec_sys_cmd("\$KCI_ROOT/kbuild.sh $conf");
+	exec_sys_cmd("\$KCI_ROOT/kbuild.sh $conf $buildsettings{'modules'}");
 }
 
