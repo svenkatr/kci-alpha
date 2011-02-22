@@ -2,19 +2,22 @@
 #Should be invoked from KERNEL_ROOT directory
 
 config_name=$1
-config_ext="_log.txt"
+config_ext=".txt"
 target_name="uImage"
+logname="build_log_"$config_name$config_ext
+echo "Begin build: $config_name"
 if [ -e $KBUILDCONFIG/$config_name ]
 then
   cp $KBUILDCONFIG/$config_name .config
 else
-  $KBUILDCONFIG/intreeconfig.sh $config_name 2>>$RESULTS_DIR/$config_name$config_ext
+  $KBUILDCONFIG/intreeconfig.sh $config_name 2>>$RESULTS_DIR/$logname
 fi
 
 scripts/config --enable CONFIG_DEBUG_SECTION_MISMATCH
 
 compstr="$CROSS_COMPILE"gcc
-make -j4 CC="$CCACHE $compstr" $target_name 2>>$RESULTS_DIR/$config_name$config_ext
+make -j4 CC="$CCACHE $compstr" $target_name 2>>$RESULTS_DIR/$logname
+
 if [ $? == 0 ]
 then
 	echo "Build succeeded: $config_name"

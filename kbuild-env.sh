@@ -10,6 +10,7 @@ export CCACHE=ccache
 if [[ $WORKSPACE == '' ]]
 then
  echo "Warn: Workspace environment not set ?"
+ exit
 else
  export BUILD_ROOT=$WORKSPACE/kernel
 fi
