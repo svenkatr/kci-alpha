@@ -9,7 +9,7 @@ our @EXPORT = qw(%buildsettings);
 %buildsettings = {};
 $buildsettings{'build_configs'} = [ 'omap1_defconfig', 'omap2plus_defconfig' ];
 $buildsettings{'modules'}='y';
-$buildsettings{'sparse'}= 'y';
+$buildsettings{'sparse'}= 'omap2plus_defconfig';
 $buildsettings{'checkpatch'}='n';
 
 1;
