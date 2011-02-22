@@ -6,6 +6,7 @@ cd $KCI_ROOT
 rm -fr $RESULTS_DIR
 mkdir $RESULTS_DIR
 
+log_init_testsuite kernel buildtests
 if [[ $1 == '' ]]
 then
   echo "Build settings file not specified: Using standard configuration"
@@ -18,4 +19,6 @@ cp settings/$BUILD_CONFIG.pl build_settings.pm
 perl do_build.pl $BUILD_ROOT 
 cd $KCI_ROOT
 rm -f build_settings.pm
+
+log_finish_testsuite kernel buildtests
 

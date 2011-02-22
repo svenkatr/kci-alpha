@@ -16,3 +16,56 @@ else
 fi
 
 export RESULTS_DIR=$BUILD_ROOT/results
+
+
+#Test result generation
+function log_init_testsuite {
+ echo "Testsuite Init $1"
+ filename=$RESULTS_DIR/"$1".xml
+ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" >$filename
+ echo "<testsuite errors=\"0\" failures=\"0\" hostname=\"Jenkins\" name=\"$1.$2\" tests=\"0\" time=\"0\">" >>$filename
+
+}
+
+#Param1=test module name
+function log_finish_testsuite {
+ echo "Done testsuite $1"
+ filename=$RESULTS_DIR/"$1".xml
+ #tccount=`grep -c \"testcase classname\" $1.xml`
+ #tfcount=`grep -c \"failure message\" $1.xml`
+ echo "</testsuite>" >>$filename
+}
+
+#Param1=test module name
+#Param2=test suite name
+#Param3=test case name
+function log_init_testcase {
+ echo "###Begin test $1 $2 $3"
+ filename=$RESULTS_DIR/"$1".xml
+ echo "<testcase classname=\"$1.$2\" name=\"$3\" time=" >>$filename
+}
+
+#Param1=test module name
+#Param2=test suite name
+#Param3=test case name
+#Param4=time to execute
+#Param5(optional)=failure message
+function log_finish_testcase {
+ filename=$RESULTS_DIR/"$1".xml
+ echo "\"$4\"> " >>$filename
+ if [ -n "$5" ]
+ then
+   echo "<failure message=<![CDATA[ $5 ]]> /></testcase>" >>$filename
+ echo "###End test $1 $2 $3:Fail"
+ else
+   echo "</testcase>" >>$filename
+ echo "###End test $1 $2 $3:Pass"
+ fi
+
+}
+
+export -f log_init_testsuite
+export -f log_finish_testsuite
+export -f log_init_testcase
+export -f log_finish_testcase
+

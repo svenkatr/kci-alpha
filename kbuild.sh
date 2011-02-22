@@ -5,7 +5,9 @@ config_name=$1
 config_ext=".txt"
 target_name="uImage"
 logname="build_log_"$config_name$config_ext
-echo "Begin build: $config_name"
+
+log_init_testcase kernel buildtests $config_name
+
 if [ -e $KBUILDCONFIG/$config_name ]
 then
   cp $KBUILDCONFIG/$config_name .config
@@ -20,12 +22,12 @@ make -j4 CC="$CCACHE $compstr" $target_name 2>>$RESULTS_DIR/$logname
 
 if [ $? == 0 ]
 then
-	echo "Build succeeded: $config_name"
+	log_finish_testcase kernel buildtests $config_name 500
 	mv $BUILD_ROOT/arch/arm/boot/$target_name $RESULTS_DIR/$target_name"_"$config_name
-	echo "uImage generated for $config_name"
 else
-	echo "Error:Build failed: $config_name"
-	echo "Complete build logs.."
-	cat $RESULTS_DIR/$config_name$config_ext
+	xlogtmp="see $logname for details"
+	log_finish_testcase kernel buildtests $config_name 500 "$xlogtmp"
+	#Log dump to console for easy grepping
+	cat $RESULTS_DIR/$logname
 fi
 
