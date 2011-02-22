@@ -55,8 +55,8 @@ function log_finish_testcase {
  echo "\"$4\"> " >>$filename
  if [ -n "$5" ]
  then
-   echo "<failure message=<![CDATA[ $5 ]]> /></testcase>" >>$filename
- echo "###End test $1 $2 $3:Fail"
+   echo "<failure message=\"$5\" /></testcase>" >>$filename
+   echo "###End test $1 $2 $3:Fail: $5"
  else
    echo "</testcase>" >>$filename
  echo "###End test $1 $2 $3:Pass"
