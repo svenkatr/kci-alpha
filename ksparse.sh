@@ -27,7 +27,7 @@ then
 	swcount=`sort $RESULTS_DIR/$logname | uniq | grep -c "warning:"`
 	if [ $swcount -gt 1000 ]
 	then
-		log_finish_testcase kernel buildtests $testcase_name 500 "More than 1000 sparse warnings!!"
+		log_finish_testcase kernel buildtests $testcase_name 500 "More than 1000 sparse warnings!! Warning count=$swcount"
 	else
 		log_finish_testcase kernel buildtests $testcase_name 500
 	fi

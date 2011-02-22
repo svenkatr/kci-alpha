@@ -8,7 +8,7 @@ config_ext=".txt"
 target_name="uImage"
 logname="build_log_"$config_name$config_ext
 
-make -j4 distclean
+make -j4 distclean > /dev/null
 log_init_testcase kernel buildtests $config_name
 
 if [ -e $KBUILDCONFIG/$config_name ]
@@ -43,13 +43,28 @@ then
      rm -fr $modules_dir
      mkdir $modules_dir
      make -j4 CC="$CCACHE $compstr" INSTALL_MOD_PATH=$modules_dir $target_name 2>>$RESULTS_DIR/$logname
-     if [ $? == 0 ]
+     build_success=$?
+     if [ $build_success == 0 ]
      then
-	log_finish_testcase kernel buildtests $config_name"-modules" 500
+	log_finish_testcase kernel buildtests $config_name"-modules" 200
      else
 	xlogtmp="see $logname for details"
-	log_finish_testcase kernel buildtests $config_name"-modules" 500 "$xlogtmp"
+	log_finish_testcase kernel buildtests $config_name"-modules" 120 "$xlogtmp"
      fi
 
+fi
+
+if [ $build_success == 0 ]
+then
+	log_init_testcase kernel buildtests $config_name"-compiler-warnings"
+	cwcount=`sort $RESULTS_DIR/$logname | uniq | grep -c "warning:"`
+	echo "Warning count= $cwcount"
+	if [ $cwcount -gt 10 ]
+	then
+	  xlogtmp="More than 10 compiler warnings!!.Warning count=$cwcount"
+	  log_finish_testcase kernel buildtests $config_name"-compiler-warnings" 10 "$xlogtmp"
+	else
+	  log_finish_testcase kernel buildtests $config_name"-compiler-warnings" 10 
+	fi
 fi
 
