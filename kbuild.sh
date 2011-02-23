@@ -26,13 +26,13 @@ make -j4 CC="$CCACHE $compstr" $target_name 2>>$RESULTS_DIR/$logname
 build_success=$?
 if [ $build_success == 0 ]
 then
-	log_finish_testcase kernel buildtests $config_name 500
 	mv $BUILD_ROOT/arch/arm/boot/$target_name $RESULTS_DIR/$target_name"_"$config_name
+	log_finish_testcase kernel buildtests $config_name 500
 else
 	xlogtmp="see $logname for details"
-	log_finish_testcase kernel buildtests $config_name 500 "$xlogtmp"
 	#Log dump to console for easy grepping
 	cat $RESULTS_DIR/$logname
+	log_finish_testcase kernel buildtests $config_name 500 "$xlogtmp"
 fi
 
 if [ $build_success == 0 -a $build_modules == 'y' ]

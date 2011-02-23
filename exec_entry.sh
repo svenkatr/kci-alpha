@@ -1,9 +1,10 @@
 
+#Entry point for all job configurations
 doconfig=$1
 echo $doconfig
 if [[ $doconfig == *build* ]]
 then
-  source exec_build.sh $doconfig
+  ./exec_build.sh $doconfig
 elif [[ $doconfig == *test* ]]
 then
   echo "Doing test"
