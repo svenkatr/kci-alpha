@@ -49,7 +49,7 @@ function log_init_testcase {
  echo "####Begin Test: $1 $2 $3"
  filename=$RESULTS_DIR/"$1".xml
  start_time=`date +%s`
- echo "<testcase classname=\"$1.$2\" name=\"$3\" time=$start_time" >>$filename
+ echo "<testcase classname=\"$1.$2\" name=\"$3\" " >>$filename
 }
 
 #Param1=test module name
@@ -61,7 +61,7 @@ function log_finish_testcase {
  filename=$RESULTS_DIR/"$1".xml
  current_time=`date +%s`
  diff=$(($current_time - $start_time))
- echo "\"$diff\"> " >>$filename
+ echo "time=\"$diff\"> " >>$filename
  if [ -n "$5" ]
  then
    echo "<failure message=\"$5\" /></testcase>" >>$filename
