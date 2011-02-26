@@ -11,3 +11,5 @@ export WORKSPACE=`pwd`/..
 export JOB_NAME=$WORKSPACE/..
 export BUILD_ID=999
 export NODE_NAME=local
+export TEST_BUILD_URL=http://localhost:8080/job/linux_mainline-omap-builds/lastSuccessfulBuild/artifact/*zip*/archive.zip
+export EXECUTOR_NUMBER=0

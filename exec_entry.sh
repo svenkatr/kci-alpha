@@ -24,7 +24,7 @@ elif [[ $EXEC_CONFIG == *test* ]]
 then
 	rm -f test_settings.pm
 	cp settings/$EXEC_CONFIG.pl test_settings.pm
-	perl do_test.pl $TEST_ROOT
+	perl do_test.pl $WORKING_DIR
 else
 	echo "Could not detect config type: $EXEC_CONFIG"
 fi

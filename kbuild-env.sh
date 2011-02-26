@@ -19,6 +19,10 @@ export RESULTS_DIR=$WORKSPACE/results
 rm -fr $RESULTS_DIR
 mkdir $RESULTS_DIR
 
+export WORKING_DIR=$WORKSPACE/working
+rm -fr $WORKING_DIR
+mkdir $WORKING_DIR
+
 
 #Test result generation
 function log_init_testsuite {
