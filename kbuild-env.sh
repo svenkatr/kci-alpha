@@ -44,7 +44,8 @@ function log_finish_testsuite {
 function log_init_testcase {
  echo "####Begin Test: $1 $2 $3"
  filename=$RESULTS_DIR/"$1".xml
- echo "<testcase classname=\"$1.$2\" name=\"$3\" time=" >>$filename
+ start_time=`date +%s`
+ echo "<testcase classname=\"$1.$2\" name=\"$3\" time=$start_time" >>$filename
 }
 
 #Param1=test module name
@@ -54,7 +55,9 @@ function log_init_testcase {
 #Param5(optional)=failure message
 function log_finish_testcase {
  filename=$RESULTS_DIR/"$1".xml
- echo "\"$4\"> " >>$filename
+ current_time=`date +%s`
+ diff=$(($current_time - $start_time))
+ echo "\"$diff\"> " >>$filename
  if [ -n "$5" ]
  then
    echo "<failure message=\"$5\" /></testcase>" >>$filename
