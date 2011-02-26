@@ -15,7 +15,7 @@ else
  export BUILD_ROOT=$WORKSPACE/kernel
 fi
 
-export RESULTS_DIR=$BUILD_ROOT/results
+export RESULTS_DIR=$WORKSPACE/results
 
 
 #Test result generation
