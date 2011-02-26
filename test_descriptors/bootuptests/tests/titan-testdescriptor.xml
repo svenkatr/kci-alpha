@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<titan>
+
+<test id="L_DD_SANITY_0001_0001">
+
+ <information>
+  <autor> Jyothi PK </autor>
+  <description>Do Sanity tests</description>
+  <dateofcreation> 01/03/2011 </dateofcreation>
+ </information>
+
+ <run>
+	 <action>
+  	<deviceundertest>reboot</deviceundertest>
+	</action>  
+   </run>
+
+ <pass>
+  <output>
+    <value>stat=0</value>
+  </output>
+ </pass>
+
+ <fail>
+  <timeout time="50"/>
+  <output>
+    <regularexpression>stat=[^0]\d*</regularexpression>
+  </output>
+ </fail>
+</test>
+
+<test id="L_DD_SANITY_0001_0002">
+
+ <information>
+  <autor> Jyothi PK </autor>
+  <description>Do Sanity tests</description>
+  <dateofcreation> 01/03/2011 </dateofcreation>
+ </information>
+
+ <run>
+  <action>
+    <command>whoami</command>
+  </action>
+   </run>
+
+ <pass>
+  <output>
+    <value>root</value>
+  </output>
+ </pass>
+
+ <fail>
+  <timeout time="50"/>
+  <output>
+    <regularexpression>stat=[^0]\d*</regularexpression>
+  </output>
+ </fail>
+</test>
+
+<test id="L_DD_SANITY_0001_0003">
+
+ <information>
+  <autor> Jyothi PK </autor>
+  <description>Do Sanity tests</description>
+  <dateofcreation> 01/03/2011 </dateofcreation>
+ </information>
+
+ <run>
+  <action>
+    <command>pwd</command>
+  </action>
+   </run>
+
+ <pass>
+  <output>
+    <value>/</value>
+  </output>
+ </pass>
+
+ <fail>
+  <timeout time="50"/>
+  <output>
+    <regularexpression>stat=[^0]\d*</regularexpression>
+  </output>
+ </fail>
+</test>
+
+<test id="L_DD_SANITY_0001_0004">
+
+ <information>
+  <autor> Jyothi PK </autor>
+  <description>Do Sanity tests</description>
+  <dateofcreation> 01/03/2011 </dateofcreation>
+ </information>
+
+ <run>
+  <action>
+    <command>cat /proc/cpuinfo | grep "4430"</command>
+  </action>
+   </run>
+
+ <pass>
+  <output>
+    <value>4430</value>
+  </output>
+ </pass>
+
+ <fail>
+  <timeout time="50"/>
+  <output>
+    <regularexpression>stat=[^0]\d*</regularexpression>
+  </output>
+ </fail>
+</test>
+
+<test id="L_DD_SANITY_0001_0005">
+
+ <information>
+  <autor> Jyothi PK </autor>
+  <description>Do Sanity tests</description>
+  <dateofcreation> 01/03/2011 </dateofcreation>
+ </information>
+
+ <run>
+  <action>
+    <command>cat /proc/cpuinfo | grep "Revision"</command>
+  </action>
+   </run>
+
+ <pass>
+  <output>
+    <value>Revision</value>
+  </output>
+ </pass>
+
+ <fail>
+  <timeout time="50"/>
+  <output>
+    <regularexpression>stat=[^0]\d*</regularexpression>
+  </output>
+ </fail>
+</test>
+
+
+</titan>
