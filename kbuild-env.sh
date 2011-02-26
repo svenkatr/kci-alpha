@@ -16,6 +16,8 @@ else
 fi
 
 export RESULTS_DIR=$WORKSPACE/results
+rm -fr $RESULTS_DIR
+mkdir $RESULTS_DIR
 
 
 #Test result generation
