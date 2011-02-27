@@ -34,7 +34,7 @@ rm -f Titan/logs/*
 
 cp -r $KCI_ROOT/test_descriptors ./Titan/
 cp $KCI_ROOT/settings/user-settings.xml."$NODE_NAME"."$EXECUTOR_NUMBER" ./Titan/settings/user-settings.xml
-cp $KCI_ROOT/testsuite/$testsuitename Titan/settings/titan-selectedTests.xml
+cp $KCI_ROOT/testsuite/$testsuitename Titan/settings/titan-selectedtests.xml
 
 else
   echo "Not implemented "
