@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <titan>
 
-<configuration name="sanity">
+<configuration name="bootuptests">
 	<scenario>L_DD_SANITY_0001_0001</scenario>
 	<scenario>L_DD_SANITY_0001_0002</scenario>
 	<scenario>L_DD_SANITY_0001_0003</scenario>
