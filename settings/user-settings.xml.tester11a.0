@@ -10,7 +10,7 @@
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.databits">8</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.checkfsprompt">true</entry>
 <entry key="titan.sdpboardgui.settings.DeviceUnderTestSelection.configuredDeviceUnderTest.PhidgetBoard">deviceAlreadySet</entry>
-<entry key="titan.common.manager.LoggerManager.logLevel">INFO</entry>
+<entry key="titan.common.manager.LoggerManager.logLevel">OFF</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.stopExecutionCommand">3</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.boardname">SDP4430</entry>
 <entry key="titan.common.test.ContinuousTesting.iterationsenabled">true</entry>
@@ -23,7 +23,7 @@
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.waitForPowerOnPrompt">10</entry>
 <entry key="titan.common.manager.SettingsManager.configuration">&lt;Default Configuration&gt;</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.waitForPostBootCommandPrompt">5</entry>
-<entry key="titan.sdpboardgui.windows.TestMonitorCommandLine.consoleLogEnabled">false</entry>
+<entry key="titan.sdpboardgui.windows.TestMonitorCommandLine.consoleLogEnabled">true</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.serialname">/dev/ttyUSB6</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.environment">serverip 172.24.184.150                                                
 ipaddr 172.24.180.196                                                   
