@@ -1,0 +1,6 @@
+test_settings.pm
+build_settings.pm
+*.swp
+*.bak
+*.ignore
+
