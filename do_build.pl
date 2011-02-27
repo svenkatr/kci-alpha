@@ -12,8 +12,6 @@ sub exec_sys_cmd
 #ARGV[0] is the KERNEL_ROOT directory passed from exec_build
 chdir $ARGV[0];
 exec_sys_cmd("echo \"[Kernel Version]:\"`git describe --match=v*`");
-my $results_log = $ARGV[1];
-#my $res = exec_sys_cmd('rm -fr $RESULTS_DIR');
 
 my $ca = $buildsettings{'build_configs'};
 my $conf;
