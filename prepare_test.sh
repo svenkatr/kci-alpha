@@ -40,3 +40,8 @@ else
   echo "Not implemented "
 
 fi
+
+export TDESCPATH=`pwd`/Titan/test_descriptors
+perl -p -i.bak -e 's/TD_PATH/$ENV{'TDESCPATH'}/g' settings/user-settings.xml
+
+
