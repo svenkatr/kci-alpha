@@ -25,7 +25,7 @@ tar -xvf Titan-software.tar.gz > /dev/null
 
 #TODO Implement a mechanism to download thirdparty
 #test descriptors and test lists which are not in kci-alpha
-if [ $testsuitename == "sanity_test" ]
+if [ $testsuitename == "bootuptests" ]
 then
 mv Titan-software Titan
 rm -fr Titan/test_descriptors
@@ -42,6 +42,6 @@ else
 fi
 
 export TDESCPATH=`pwd`/Titan/test_descriptors
-perl -p -i.bak -e 's/TD_PATH/$ENV{'TDESCPATH'}/g' settings/user-settings.xml
+perl -p -i.bak -e 's/TD_PATH/$ENV{'TDESCPATH'}/g' Titan/settings/user-settings.xml
 
 

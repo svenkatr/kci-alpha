@@ -11,7 +11,9 @@ sub exec_sys_cmd
 
 #ARGV[0] is the directory to be used for testing
 chdir $ARGV[0];
-exec_sys_cmd("\$KCI_ROOT/prepare_test.sh uImage_omap2plus_defconfig sanity_test");
+exec_sys_cmd("\$KCI_ROOT/prepare_test.sh uImage_omap2plus_defconfig bootuptests");
 
-#exec_sys_cmd("\$KCI_ROOT/kbuild.sh $conf $buildsettings{'modules'}");
+exec_sys_cmd("\$WORKING_DIR/Titan/start.sh cmd bootuptests");
+
+
 
