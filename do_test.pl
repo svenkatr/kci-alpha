@@ -13,7 +13,8 @@ sub exec_sys_cmd
 chdir $ARGV[0];
 exec_sys_cmd("\$KCI_ROOT/prepare_test.sh uImage_omap2plus_defconfig bootuptests");
 
-exec_sys_cmd("\$WORKING_DIR/Titan/start.sh cmd bootuptests");
+chdir "$ENV{'WORKING_DIR'}/Titan";
+exec_sys_cmd("./start.sh cmd bootuptests");
 
 
 

@@ -20,6 +20,10 @@ else
 	fi
 fi
 
+#Assume every slave machine runs a TFTP server with the root directory as
+# /tftpboot. TODO revisit this
+cp uImage /tftpboot/"uImage"$EXECUTOR_NUMBER
+
 wget --no-proxy -q $RESOURCES_URL"/Titan-software.tar.gz"
 tar -xvf Titan-software.tar.gz > /dev/null
 
