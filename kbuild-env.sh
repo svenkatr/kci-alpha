@@ -33,7 +33,7 @@ export TREPORTPATH=$TITAN_DIR/reports
 #Test result generation
 function log_init_testsuite {
  echo "###Begin Testsuite: $*"
- filename=$RESULTS_DIR/"$2".xml
+ filename=$RESULTS_DIR/"$1.$2".xml
  echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" >$filename
  echo "<testsuite errors=\"0\" failures=\"0\" hostname=\"Jenkins\" name=\"$1.$2\" tests=\"0\" time=\"0\">" >>$filename
 
@@ -42,7 +42,7 @@ function log_init_testsuite {
 #Param1=test module name
 function log_finish_testsuite {
  echo "###End Testsuite: $*"
- filename=$RESULTS_DIR/"$2".xml
+ filename=$RESULTS_DIR/"$1.$2".xml
  #tccount=`grep -c \"testcase classname\" $1.xml`
  #tfcount=`grep -c \"failure message\" $1.xml`
  echo "</testsuite>" >>$filename
@@ -53,7 +53,7 @@ function log_finish_testsuite {
 #Param3=test case name
 function log_init_testcase {
  echo "####Begin Test: $1 $2 $3"
- filename=$RESULTS_DIR/"$2".xml
+ filename=$RESULTS_DIR/"$1.$2".xml
  start_time=`date +%s`
  echo "<testcase classname=\"$1.$2\" name=\"$3\" " >>$filename
 }
@@ -64,7 +64,7 @@ function log_init_testcase {
 #Param4=time to execute
 #Param5(optional)=failure message
 function log_finish_testcase {
- filename=$RESULTS_DIR/"$2".xml
+ filename=$RESULTS_DIR/"$1.$2".xml
  current_time=`date +%s`
  diff=$(($current_time - $start_time))
  echo "time=\"$diff\"> " >>$filename
