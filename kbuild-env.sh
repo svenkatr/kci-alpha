@@ -79,8 +79,28 @@ function log_finish_testcase {
 
 }
 
+#Param1=test suite name
+#Param2=test module name
+#Param3=txt file to be converted to Junit format
+function txt_to_junit {
+        log_init_testsuite $1 $2
+        while read VLINE
+        do      
+                tcv=${VLINE#*;};
+                tcn=${VLINE%;*};
+	log_init_testcase $1 $2 $tcn
+	if [ $tcv == 'P' ]
+	then
+		log_finish_testcase $1 $2 $tcn 10
+	else
+		log_finish_testcase $1 $2 $tcn 10 "Testcase failure"
+	fi
+        done < $3
+        log_finish_testsuite $1 $2
+}
+
 export -f log_init_testsuite
 export -f log_finish_testsuite
 export -f log_init_testcase
 export -f log_finish_testcase
-
+export -f txt_to_junit
