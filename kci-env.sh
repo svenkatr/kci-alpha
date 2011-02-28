@@ -12,5 +12,6 @@ export JOB_NAME=$WORKSPACE/..
 export BUILD_ID=999
 export NODE_NAME=tester11a
 export TEST_BUILD_URL=http://localhost:8080/job/linux_mainline-omap-builds/lastSuccessfulBuild/artifact/*zip*/archive.zip
-export NODE_LABEL="OMAP6430SDP"
+export NODE_LABEL="OMAP6430SDP ES2"
 export EXECUTOR_NUMBER=0
+export TARGET_NAME="OMAP6430SDP"

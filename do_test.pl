@@ -11,10 +11,17 @@ sub exec_sys_cmd
 
 #ARGV[0] is the directory to be used for testing
 chdir $ARGV[0];
-exec_sys_cmd("\$KCI_ROOT/prepare_test.sh uImage_omap2plus_defconfig bootuptests");
+#print "Image to test $config_settings{'image'}";
 
-chdir "$ENV{'WORKING_DIR'}/Titan";
-exec_sys_cmd("./start.sh cmd bootuptests");
+exec_sys_cmd("\$KCI_ROOT/prepare_test.sh $config_settings{'image'}");
+my $ca = $config_settings{'testsuites'};
+my $conf;
+foreach $conf (@$ca) {
+	exec_sys_cmd("\$KCI_ROOT/run_tests.sh \$KCI_ROOT/testsuite/$conf");
+}
+
+#chdir "$ENV{'WORKING_DIR'}/Titan";
+#exec_sys_cmd("./start.sh cmd bootuptests");
 
 
 

@@ -7,7 +7,8 @@ our %config_settings = {};
 our @EXPORT = qw(%config_settings);
 
 $config_settings{'image'} = 'uImage_omap2plus_defconfig';
-#$config_settings{'targets'} = [ 'OMAP4430SDP'];
+$config_settings{'testsuites'} = [ 'bootuptests' ];
+
 
 
 

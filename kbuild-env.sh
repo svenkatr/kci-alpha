@@ -23,6 +23,12 @@ export WORKING_DIR=$WORKSPACE/working
 rm -fr $WORKING_DIR
 mkdir $WORKING_DIR
 
+export TITAN_DIR=$WORKING_DIR/Titan
+export TDESCPATH=$TITAN_DIR/test_descriptors
+export TUSER_SETTINGS=$TITAN_DIR/settings/user-settings.xml
+export TSELECTED_TESTS=$TITAN_DIR/settings/titan-selectedtests.xml
+export TLOGPATH=$TITAN_DIR/logs
+export TREPORTPATH=$TITAN_DIR/reports
 
 #Test result generation
 function log_init_testsuite {

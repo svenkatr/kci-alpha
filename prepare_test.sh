@@ -1,7 +1,6 @@
 #!/bin/bash
 #1st param is the uImage to test
 uImagename=$1
-testsuitename=$2
 #Get the builds
 #TODO: use cURL to support multiple download methods
 wget --no-proxy -q  $TEST_BUILD_URL
@@ -28,26 +27,16 @@ cp uImage /tftpboot/$NODE_NAME"."$EXECUTOR_NUMBER
 wget --no-proxy -q $RESOURCES_URL"/Titan-software.tar.gz"
 tar -xvf Titan-software.tar.gz > /dev/null
 
-mv Titan-software Titan
-rm -fr Titan/test_descriptors
-rm -f Titan/settings/titan-selectedtests.xml
-rm -f Titan/logs/*
+mv Titan-software $TITAN_DIR
+rm -fr $TDESCPATH
+rm -f $TUSER_SETTINGS
+rm -f $TSELECTED_TESTS
+rm -f $TLOG_PATH
 
-#TODO Implement a mechanism to download thirdparty
-#test descriptors and test lists which are not in kci-alpha
-if [ $testsuitename == "bootuptests" ]
-then
-cp -r $KCI_ROOT/test_descriptors ./Titan/
-cp $KCI_ROOT/settings/user-settings.xml."$NODE_NAME"."$EXECUTOR_NUMBER" ./Titan/settings/user-settings.xml
-cp $KCI_ROOT/testsuite/$testsuitename Titan/settings/titan-selectedtests.xml
+cp -r $KCI_ROOT/test_descriptors $TITAN_DIR
+cp $KCI_ROOT/settings/user-settings.xml."$NODE_NAME"."$EXECUTOR_NUMBER" $TUSER_SETTINGS
 
-else
-  echo "Not implemented "
-
-fi
-
-export TDESCPATH=`pwd`/Titan/test_descriptors
-perl -p -i.bak -e 's/TDESCPATH/$ENV{'TDESCPATH'}/g' Titan/settings/user-settings.xml
-perl -p -i.bak -e 's/NODE_NAME/$ENV{'NODE_NAME'}/g' Titan/settings/user-settings.xml
-perl -p -i.bak -e 's/EXECUTOR_NUMBER/$ENV{'EXECUTOR_NUMBER'}/g' Titan/settings/user-settings.xml
+perl -p -i.bak -e 's/TDESCPATH/$ENV{'TDESCPATH'}/g' $TUSER_SETTINGS
+perl -p -i.bak -e 's/NODE_NAME/$ENV{'NODE_NAME'}/g' $TUSER_SETTINGS
+perl -p -i.bak -e 's/EXECUTOR_NUMBER/$ENV{'EXECUTOR_NUMBER'}/g' $TUSER_SETTINGS
 

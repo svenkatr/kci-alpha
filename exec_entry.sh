@@ -22,10 +22,10 @@ then
 elif [[ $EXEC_CONFIG == *test* ]]
 then
 	rm -f test_settings.pm
-	log_init_testsuite $TARGET_NAME sanity_test
+	#log_init_testsuite $TARGET_NAME sanity_test
 	cp settings/$EXEC_CONFIG.pl test_settings.pm
 	perl do_test.pl $WORKING_DIR
-	log_finish_testsuite $TARGET_NAME sanity_test
+	#log_finish_testsuite $TARGET_NAME sanity_test
 else
 	echo "Could not detect config type: $EXEC_CONFIG"
 fi
