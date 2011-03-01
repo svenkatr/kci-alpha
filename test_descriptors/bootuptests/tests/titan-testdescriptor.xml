@@ -141,5 +141,33 @@
  </fail>
 </test>
 
+<test id="panda_dummy_loader">
+
+ <information>
+  <autor> Sourav Poddar </autor>
+  <description>mmc verification</description>
+  <dateofcreation> 01/03/2011 </dateofcreation>
+ </information>
+
+ <run>
+  <action>
+    <command>mount /dev/mmcblk0p1 /mnt/mmc; cp /tester11c.1 /mnt/mmc/uImagetest;sync</command>
+  </action>
+   </run>
+
+ <pass>
+  <output>
+    <value>stat=o</value>
+  </output>
+ </pass>
+
+ <fail>
+  <timeout time="50"/>
+  <output>
+    <regularexpression>stat=[^0]\d*</regularexpression>
+  </output>
+ </fail>
+</test>
+
 
 </titan>

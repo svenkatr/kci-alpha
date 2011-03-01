@@ -13,6 +13,13 @@ sub exec_sys_cmd
 chdir $ARGV[0];
 #print "Image to test $config_settings{'image'}";
 
+if ($ENV{'TARGET_NAME'}=~/PANDA/)
+{
+	exec_sys_cmd("\$KCI_ROOT/panda_prepare.sh $config_settings{'image'}");
+	exec_sys_cmd("\$KCI_ROOT/run_tests.sh \$KCI_ROOT/testsuite/panda_dummy");
+}
+ 
+
 exec_sys_cmd("\$KCI_ROOT/prepare_test.sh $config_settings{'image'}");
 my $ca = $config_settings{'testsuites'};
 my $conf;

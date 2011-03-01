@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<titan>
+
+<configuration name="panda_dummy">
+	<scenario>panda_dummy_loader</scenario>
+	</configuration>
+</titan>
