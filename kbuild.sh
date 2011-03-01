@@ -18,6 +18,9 @@ else
   $KBUILDCONFIG/intreeconfig.sh $config_name 2>>$RESULTS_DIR/$logname
 fi
 
+scripts/config --enable CONFIG_USB_NET_SMSC95XX
+scripts/config --enable CONFIG_USB_EHCI_HCD
+scripts/config --enable CONFIG_USB_EHCI_HCD_OMAP
 scripts/config --enable CONFIG_DEBUG_SECTION_MISMATCH
 
 compstr="$CROSS_COMPILE"gcc
