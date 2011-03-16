@@ -29,8 +29,8 @@
 ipaddr 172.24.180.196                                                   
 gatewayip 172.24.188.1        
 netmask 255.255.255.0 
-bootfile uImage
-bootargs console=ttyO2,115200n8 root=/dev/nfs rw nfsroot=172.24.184.150:/usr/local/NFS/OMAP4_PANDA/target,nolock ip=dhcp
+bootfile uImagetest
+bootargs console=ttyO2,115200n8 root=/dev/nfs rw nfsroot=172.24.184.150:/usr/local/NFS/OMAP4_PANDA/target,nolock,tcp,rsize=2048,wsize=2048 mem=1G vram=12M ip=dhcp
 bootcmd 'printenv; mmcinit 0; fatload mmc 0 0x80300000 uImagetest; bootm 80300000'
 boot
 </entry>
