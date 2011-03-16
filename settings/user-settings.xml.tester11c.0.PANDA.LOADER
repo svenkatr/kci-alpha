@@ -23,7 +23,7 @@
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.waitForPowerOnPrompt">10</entry>
 <entry key="titan.common.manager.SettingsManager.configuration">&lt;Default Configuration&gt;</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.waitForPostBootCommandPrompt">5</entry>
-<entry key="titan.sdpboardgui.windows.TestMonitorCommandLine.consoleLogEnabled">true</entry>
+<entry key="titan.sdpboardgui.windows.TestMonitorCommandLine.consoleLogEnabled">false</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.serialname">/dev/ttyUSB8</entry>
 <entry key="titan.boards.PhidgetBoard.PhidgetBoard.environment">serverip 172.24.184.150                                                
 ipaddr 172.24.180.196                                                   
