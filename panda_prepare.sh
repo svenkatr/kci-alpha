@@ -43,7 +43,7 @@ perl -p -i.bak -e 's/NODE_NAME/$ENV{'NODE_NAME'}/g' $TUSER_SETTINGS
 perl -p -i.bak -e 's/EXECUTOR_NUMBER/$ENV{'EXECUTOR_NUMBER'}/g' $TUSER_SETTINGS
 
 cd $TITAN_DIR/test_descriptors
-find . -name '*.xml' -print0 | xargs -O perl -p -i.bak -e 's/TDESCPATH/$ENV{'TDESCPATH'}/g' 
-find . -name '*.xml' -print0 | xargs -O perl -p -i.bak -e 's/NODE_NAME/$ENV{'NODE_NAME'}/g'
-find . -name '*.xml' -print0 | xargs -O perl -p -i.bak -e 's/EXECUTOR_NUMBER/$ENV{'EXECUTOR_NUMBER'}/g' 
+find . -name '*.xml' -print0 | xargs -0 perl -p -i.bak -e 's/TDESCPATH/$ENV{'TDESCPATH'}/g' 
+find . -name '*.xml' -print0 | xargs -0 perl -p -i.bak -e 's/NODE_NAME/$ENV{'NODE_NAME'}/g'
+find . -name '*.xml' -print0 | xargs -0 perl -p -i.bak -e 's/EXECUTOR_NUMBER/$ENV{'EXECUTOR_NUMBER'}/g' 
 
