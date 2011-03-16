@@ -1,6 +1,8 @@
 #!/bin/bash
 #1st param is the uImage to test
 uImagename=$1
+rm -f $uImagename
+rm -f *.zip
 #Get the builds
 #TODO: use cURL to support multiple download methods
 wget --no-proxy -q  $TEST_BUILD_URL
@@ -39,4 +41,9 @@ cp $KCI_ROOT/settings/user-settings.xml."$NODE_NAME"."$EXECUTOR_NUMBER".PANDA.LO
 perl -p -i.bak -e 's/TDESCPATH/$ENV{'TDESCPATH'}/g' $TUSER_SETTINGS
 perl -p -i.bak -e 's/NODE_NAME/$ENV{'NODE_NAME'}/g' $TUSER_SETTINGS
 perl -p -i.bak -e 's/EXECUTOR_NUMBER/$ENV{'EXECUTOR_NUMBER'}/g' $TUSER_SETTINGS
+
+cd $TITAN_DIR/test_descriptors
+find . -name '*.xml' -print0 | xargs -O perl -p -i.bak -e 's/TDESCPATH/$ENV{'TDESCPATH'}/g' 
+find . -name '*.xml' -print0 | xargs -O perl -p -i.bak -e 's/NODE_NAME/$ENV{'NODE_NAME'}/g'
+find . -name '*.xml' -print0 | xargs -O perl -p -i.bak -e 's/EXECUTOR_NUMBER/$ENV{'EXECUTOR_NUMBER'}/g' 
 

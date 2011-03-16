@@ -151,7 +151,7 @@
 
  <run>
   <action>
-    <command>mount /dev/mmcblk0p1 /mnt/mmc; cp /tester11c.1 /mnt/mmc/uImagetest;sync</command>
+    <command>mount /dev/mmcblk0p1 /mnt/mmc; cp /NODE_NAME.EXECUTOR_NUMBER /mnt/mmc/uImagetest;sync</command>
   </action>
    </run>
 

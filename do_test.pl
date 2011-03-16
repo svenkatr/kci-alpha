@@ -7,6 +7,9 @@ sub exec_sys_cmd
 {
    my ($scmd, undef) = @_;
    my $res = system("$scmd");
+   if ($res !=0) {
+	print "Error: $scmd returned error: $res";
+   }
 }
 
 #ARGV[0] is the directory to be used for testing

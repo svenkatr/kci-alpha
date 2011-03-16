@@ -1,6 +1,9 @@
 #!/bin/bash
 #1st param is the uImage to test
 uImagename=$1
+
+rm -f $uImagename
+rm -f *.zip
 #Get the builds
 #TODO: use cURL to support multiple download methods
 wget --no-proxy -q  $TEST_BUILD_URL
